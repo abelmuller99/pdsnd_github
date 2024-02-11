@@ -33,7 +33,10 @@ DAY_NAMES = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
              "Saturday", "Sunday"]
 
 START_INDEX = 0 # constant to indicate beginning index 
+
 FIVE_ROWS = 5 # constant to iterate for next 5 rows when printing dataframe for user
+
+MIN_IN_HOUR = 60
 
 
 ############################################################################
@@ -314,7 +317,7 @@ def trip_duration_stats(df):
 
     # display mean travel time
     mean_time = round(trip_times.mean(), 2)
-    mean_mins = round(mean_time/60, 2)
+    mean_mins = round(mean_time/MIN_IN_HOUR, 2)
     print(f'The average trip time was {mean_time} seconds or {mean_mins} mins.')
 
 
