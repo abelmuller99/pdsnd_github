@@ -279,7 +279,10 @@ def station_stats(df):
     print(f'The most common end station is {end_stn_common}')
 
     # display most frequent combination of start station and end station trip
+    # concatenate the start and end station features 
     stn_combo = df['Start Station'] + " to " + df['End Station'].astype(str)
+
+    # find and display the most common station combo
     combo_common = stn_combo.value_counts().idxmax()
     print(f'The most common trip made is from {combo_common}')
     
@@ -313,8 +316,13 @@ def trip_duration_stats(df):
     
 
     # display mean travel time
+    # find the mean time, this is calculated in seconds 
     mean_time = round(trip_times.mean(), 2)
+
+    # convert the mean time to minutes
     mean_mins = round(mean_time/60, 2)
+
+    # print the mean time
     print(f'The average trip time was {mean_time} seconds or {mean_mins} mins.')
 
 
@@ -338,14 +346,14 @@ def user_stats(df, city):
     print(user_counts)
 
 
-    # Display counts of gender
+    # display counts of gender
     if city == 'washington':
         print("Washington has no data on gender")
     else:
         gender_counts = df['Gender'].value_counts(dropna = True)
         print(gender_counts)
 
-    # Display earliest, most recent, and most common year of birth
+    # display earliest, most recent, and most common year of birth
     
     if city == 'washington':
         print("Washington has no data on the birth year")
