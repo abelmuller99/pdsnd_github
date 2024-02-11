@@ -36,7 +36,9 @@ START_INDEX = 0 # constant to indicate beginning index
 
 FIVE_ROWS = 5 # constant to iterate for next 5 rows when printing dataframe for user
 
-MIN_IN_HOUR = 60
+MIN_IN_HOUR = 60 # constant to show how many mins are in an hour for calcs
+
+HRS_IN_DAY = 24 # constant to help with calcs converting hours to days
 
 
 ############################################################################
@@ -309,9 +311,9 @@ def trip_duration_stats(df):
     print(f'The total trip time for this data is {round(total_travel_time/60, 2)} hours')
     
     # get the total travel time in hours
-    total_in_days = total_travel_time/24 # assign variable for number
+    total_in_days = total_travel_time/HRS_IN_DAY 
     
-    if total_in_days > 24: # assign variable for number (HOURS IN DAY)
+    if total_in_days > HRS_IN_DAY:
         print(f'This is equivalent to {round(float(total_in_days/24), 2)} days!')
     
 
